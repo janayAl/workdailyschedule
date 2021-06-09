@@ -3,7 +3,18 @@ var dayWeek = today.format("dddd, MMM Do")
 $("#currentDay").text(dayWeek);
 
 function saveText(){
-    console.log("clicked")
+    //console.log("clicked")
 }
 
 $("button").on("click", saveText)
+
+if (window.localStorage) {
+    var mytextarea = document.getElementById("mytextarea");
+    mytextarea.value = localStorage.getItem ("textarea");
+
+    mytextarea.addEventListener("input", function() {
+        localStorage.setItem("textarea, mytextarea.value");
+
+    })
+
+}
